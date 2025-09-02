@@ -6,6 +6,23 @@
 - A Makefile is a script used by the make tool to define and automate build and development tasks.
 - It helps avoid “works on my machine” problems by standardizing steps so anyone can run the same commands consistently.
 
+## Sample Makefile
+```make
+.DEFAULT_GOAL := build
+fmt:
+ go fmt ./...
+.PHONY:fmt
+lint: fmt
+ golint ./...
+.PHONY:lint
+vet: fmt
+ go vet ./...
+.PHONY:vet
+vet
+ go build hello.go
+.PHONY:build
+```
+
 ## Sample Makefile Breakdown
 - The example Makefile defines several targets (tasks):
 
